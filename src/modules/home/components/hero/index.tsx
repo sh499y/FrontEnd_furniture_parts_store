@@ -24,6 +24,7 @@ const Hero = () => {
           target="_blank"
         >
           <Button variant="secondary">
+            <span className="material-icons">search</span>
             View on GitHub
             <Github />
           </Button>
