@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left - Content */}
         <div className="flex flex-col gap-6">
-          <span className="inline-block w-fit px-3 py-1.5 border border-black text-[11px] font-semibold tracking-[0.15em] uppercase">
+          <span className="inline-block w-fit px-3 py-1.5 border border-black text-[11px] font-semibold tracking-[0.15em] uppercase bg-white">
             Premium Akcesoria Meblowe
           </span>
 
@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
         <div className="relative">
           <div className="rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
             <img
-              src="/images/hero-kitchen.jpg"
+              src="/hero.jpg"
               alt="Nowoczesna kuchnia z akcesoriami meblowymi AMMW"
               className="w-full h-[350px] md:h-[420px] object-cover"
             />
