@@ -1,8 +1,14 @@
 import { Metadata } from "next"
 
 import FeaturedProducts from "@modules/home/components/featured-products"
+//import category for section
+import { getCategoryByHandle } from "@lib/data/categories"
+
+//Componenty Hero
 import Hero from "@modules/home/components/hero"
 import Hero_fetures from "@modules/home/components/hero/hero_fetures"
+import Hero_categories from "@modules/home/components/hero/hero_categories"
+
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
@@ -29,10 +35,15 @@ export default async function Home(props: {
     return null
   }
 
+  const category = await getCategoryByHandle(["akcesoria-meblowe"])
+  const subcategories = category?.category_children ?? []
+
   return (
     <>
       <Hero />
       <Hero_fetures />
+      <Hero_categories categories={subcategories} />
+
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />
