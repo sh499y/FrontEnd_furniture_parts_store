@@ -8,6 +8,13 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 
+const navLinks = [
+  { name: "Sklep", href: "/store" },
+  { name: "Kategorie", href: "/categories" },
+  { name: "O nas", href: "/o-nas" },
+  { name: "Kontakt", href: "/kontakt" },
+]
+
 export default async function Nav() {
   const [regions, locales, currentLocale] = await Promise.all([
     listRegions().then((regions: StoreRegion[]) => regions),
@@ -18,41 +25,67 @@ export default async function Nav() {
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
       <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
-        <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
-          <div className="flex-1 basis-0 h-full flex items-center">
-            <div className="h-full">
+        <nav className="content-container flex items-center justify-between w-full h-full">
+          {/* Left - Logo + Mobile Menu */}
+          <div className="flex items-center gap-4 flex-1 basis-0">
+            <div className="lg:hidden h-full flex items-center">
               <SideMenu regions={regions} locales={locales} currentLocale={currentLocale} />
             </div>
-          </div>
-
-          <div className="flex items-center h-full">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
+              className="flex items-center gap-2"
               data-testid="nav-store-link"
             >
-              Medusa Store
+              <span className="text-xl font-bold tracking-tight text-black">
+                AMMW
+              </span>
+              <span className="hidden sm:inline text-[10px] uppercase tracking-[0.15em] text-[#888] font-medium leading-tight border-l border-[#ddd] pl-2 ml-1">
+                Akcesoria<br />Meblowe
+              </span>
             </LocalizedClientLink>
           </div>
 
-          <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
+          {/* Center - Navigation Links */}
+          <div className="hidden lg:flex items-center gap-8 h-full">
+            {navLinks.map((link) => (
               <LocalizedClientLink
-                className="hover:text-ui-fg-base"
-                href="/account"
-                data-testid="nav-account-link"
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium text-[#555] hover:text-black transition-colors relative py-1"
               >
-                Account
+                {link.name}
               </LocalizedClientLink>
-            </div>
+            ))}
+          </div>
+
+          {/* Right - Actions */}
+          <div className="flex items-center gap-5 flex-1 basis-0 justify-end">
+            <LocalizedClientLink
+              href="/store"
+              className="hidden sm:flex text-[#555] hover:text-black transition-colors"
+              aria-label="Szukaj"
+            >
+              <span className="material-icons text-[22px]">search</span>
+            </LocalizedClientLink>
+
+            <LocalizedClientLink
+              className="hidden sm:flex text-[#555] hover:text-black transition-colors"
+              href="/account"
+              data-testid="nav-account-link"
+              aria-label="Konto"
+            >
+              <span className="material-icons text-[22px]">person_outline</span>
+            </LocalizedClientLink>
+
             <Suspense
               fallback={
                 <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2"
+                  className="text-[#555] hover:text-black flex items-center gap-1 transition-colors"
                   href="/cart"
                   data-testid="nav-cart-link"
                 >
-                  Cart (0)
+                  <span className="material-icons text-[22px]">shopping_bag</span>
+                  <span className="text-xs font-medium">0</span>
                 </LocalizedClientLink>
               }
             >
