@@ -66,15 +66,26 @@ export default function CategoryTemplate({
         )}
         {category.category_children && (
           <div className="mb-8 text-base-large">
-            <ul className="grid grid-cols-1 gap-2">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {category.category_children?.map((c) => (
-                <li key={c.id}>
-                  <InteractiveLink href={`/categories/${c.handle}`}>
-                    {c.name}
-                  </InteractiveLink>
-                </li>
+                <LocalizedClientLink
+                  key={c.id}
+                  href={`/categories/${c.handle}`}
+                  className="group border rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+                >
+                  <div className="aspect-square bg-gray-100 flex items-center justify-center">
+                    <span className="material-icons text-4xl text-gray-400">
+                      category
+                    </span>
+                  </div>
+                  <div className="p-3 text-center">
+                    <h3 className="text-sm font-semibold text-black group-hover:underline">
+                      {c.name}
+                    </h3>
+                  </div>
+                </LocalizedClientLink>
               ))}
-            </ul>
+            </div>
           </div>
         )}
         <Suspense

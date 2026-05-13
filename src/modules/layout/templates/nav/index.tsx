@@ -1,4 +1,4 @@
-import { Suspense } from "react"
+import React, { Suspense } from "react"
 
 import { listRegions } from "@lib/data/regions"
 import { listLocales } from "@lib/data/locales"
@@ -24,23 +24,52 @@ export default async function Nav() {
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
+      <div className="bg-black text-white text-xs py-1.5 tracking-wide">
+        <div className="content-container flex items-center justify-between">
+          <a
+            href="https://maps.app.goo.gl/BY8fCds54Ezbgt776"
+            className="hover:underline hidden sm:inline"
+          >
+            <span className="material-icons text-[14px] align-middle mr-1">
+              map
+            </span>
+            Kolejowa 24a, 60-185 Skórzewo
+          </a>
+          <a href="tel:+48609383318" className="hover:underline sm:ml-auto">
+            <span className="material-icons text-[14px] align-middle mr-1">
+              phone
+            </span>
+            Zadzwoń do nas: +48 609 383 318
+          </a>
+        </div>
+      </div>
       <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
         <nav className="content-container flex items-center justify-between w-full h-full">
           {/* Left - Logo + Mobile Menu */}
           <div className="flex items-center gap-4 flex-1 basis-0">
             <div className="lg:hidden h-full flex items-center">
-              <SideMenu regions={regions} locales={locales} currentLocale={currentLocale} />
+              <SideMenu
+                regions={regions}
+                locales={locales}
+                currentLocale={currentLocale}
+              />
             </div>
             <LocalizedClientLink
               href="/"
               className="flex items-center gap-2"
               data-testid="nav-store-link"
             >
-              <span className="text-xl font-bold tracking-tight text-black">
-                AMMW
-              </span>
+              <img
+                src="/AMMV_logo.svg"
+                alt="AMMW Logo"
+                width={100}
+                height={40}
+                className="h-[45px] md:h-[35px] w-auto"
+              />
               <span className="hidden sm:inline text-[10px] uppercase tracking-[0.15em] text-[#888] font-medium leading-tight border-l border-[#ddd] pl-2 ml-1">
-                Akcesoria<br />Meblowe
+                Akcesoria
+                <br />
+                Meblowe
               </span>
             </LocalizedClientLink>
           </div>
@@ -84,7 +113,9 @@ export default async function Nav() {
                   href="/cart"
                   data-testid="nav-cart-link"
                 >
-                  <span className="material-icons text-[22px]">shopping_bag</span>
+                  <span className="material-icons text-[22px]">
+                    shopping_bag
+                  </span>
                   <span className="text-xs font-medium">0</span>
                 </LocalizedClientLink>
               }
