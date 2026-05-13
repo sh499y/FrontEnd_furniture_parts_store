@@ -13,11 +13,26 @@ export default function HeroCategories({
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
       const scrollAmount = 300
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      })
+
+
+      //Prawa Granica
+      if (
+        direction === "right" &&
+        scrollLeft + clientWidth >= scrollWidth - 10
+      ) {
+        // Koniec → wróć na początek
+        scrollRef.current.scrollTo({ left: 0, behavior: "smooth" })
+      } else if (direction === "left" && scrollLeft <= 10) {
+        // Początek → skocz na koniec
+        scrollRef.current.scrollTo({ left: scrollWidth, behavior: "smooth" })
+      } else {
+        scrollRef.current.scrollBy({
+          left: direction === "left" ? -scrollAmount : scrollAmount,
+          behavior: "smooth",
+        })
+      }
     }
   }
 
@@ -29,7 +44,7 @@ export default function HeroCategories({
           {/* Strzałka lewa */}
           <button
             onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black text-white col-w shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-neutral-800 transition-colors"
           >
             <span className="material-icons">chevron_left</span>
           </button>
@@ -37,7 +52,7 @@ export default function HeroCategories({
           {/* Karuzela */}
           <div
             ref={scrollRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hide px-12 snap-x snap-mandatory"
+            className="flex gap-4 overflow-x-auto no-scrollbar px-12 snap-x snap-mandatory"
           >
             {categories.map((c) => (
               <LocalizedClientLink
@@ -62,7 +77,7 @@ export default function HeroCategories({
           {/* Strzałka prawa */}
           <button
             onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black text-white shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-neutral-800 transition-colors"
           >
             <span className="material-icons">chevron_right</span>
           </button>
