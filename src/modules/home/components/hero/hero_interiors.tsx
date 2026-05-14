@@ -23,7 +23,7 @@ export default function Hero_interiors() {
         Nasze części i komponenty znajdują zastosowanie w nowoczesnych
         realizacjach wnętrz. Od mieszkań i domów, po biura oraz lokale użytkowe.
       </p>
-      <div className="flex items-center gap-2 h-[400px] w-full max-w-4xl mt-10 mx-auto">
+      <div className="flex items-center gap-2 h-[400px] w-full max-w-6xl mt-10 mx-auto">
         {images.map((src, i) => (
           <div
             key={i}
