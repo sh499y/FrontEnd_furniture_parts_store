@@ -60,7 +60,10 @@ export default function HeroCategories({
                 href={`/categories/${c.handle}`}
                 className="group flex-shrink-0 w-[200px] border rounded-lg overflow-hidden hover:shadow-md transition-shadow snap-start"
               >
-                <div className="aspect-square bg-gray-100 flex items-center justify-center">
+                <div className="aspect-square bg-gray-100 flex items-center justify-center relative">
+                  <span className="absolute top-2 right-2 text-[10px] bg-black text-white px-1.5 py-0.5 rounded">
+                    {c.products?.length ?? 0} produkty
+                  </span>
                   <span className="material-icons text-4xl text-gray-400">
                     category
                   </span>
