@@ -11,6 +11,7 @@ import Hero_fetures from "@modules/home/components/hero/hero_fetures"
 import Hero_categories from "@modules/home/components/hero/hero_categories"
 import HeroPopular from "@modules/home/components/hero/hero_popular"
 import Hero_about from "@modules/home/components/hero/hero_about"
+import Hero_interiors from "@modules/home/components/hero/hero_interiors"
 
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
@@ -54,7 +55,7 @@ export default async function Home(props: {
       <Hero_categories categories={subcategories} />
       <HeroPopular products={response.products} />
       <HeroAbout />
-
+      <Hero_interiors />
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />
