@@ -35,8 +35,11 @@ export default function HeroPopular({
     <section className="w-full py-8 px-6 bg-black text-white">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl font-semibold text-center mb-6">
-          Popularne produkty
+          Najczęściej kupowane
         </h2>
+        <p className="text-center mb-10">
+          Nasze najpopularniejsze produkty wybrane przez profesjonalistów
+        </p>
         <div className="relative">
           <button
             onClick={() => scroll("left")}
