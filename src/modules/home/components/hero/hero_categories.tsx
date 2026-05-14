@@ -44,7 +44,7 @@ export default function HeroCategories({
           {/* Strzałka lewa */}
           <button
             onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black text-white col-w shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-neutral-800 transition-colors"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black text-white col-w shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-neutral-800 transition-colors ml-2"
           >
             <span className="material-icons">chevron_left</span>
           </button>
@@ -80,7 +80,7 @@ export default function HeroCategories({
           {/* Strzałka prawa */}
           <button
             onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black text-white shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-neutral-800 transition-colors"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black text-white shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-neutral-800 transition-colors mr-2"
           >
             <span className="material-icons">chevron_right</span>
           </button>
