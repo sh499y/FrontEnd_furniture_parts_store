@@ -3,11 +3,13 @@ import { Metadata } from "next"
 import FeaturedProducts from "@modules/home/components/featured-products"
 //import category for section
 import { getCategoryByHandle } from "@lib/data/categories"
+import { listProducts } from "@lib/data/products"
 
 //Componenty Hero
 import Hero from "@modules/home/components/hero"
 import Hero_fetures from "@modules/home/components/hero/hero_fetures"
 import Hero_categories from "@modules/home/components/hero/hero_categories"
+import HeroPopular from "@modules/home/components/hero/hero_popular"
 
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
@@ -31,9 +33,14 @@ export default async function Home(props: {
     fields: "id, handle, title",
   })
 
+  const { response } = await listProducts({
+    countryCode,
+    queryParams: { limit: 20 },
+  })
   if (!collections || !region) {
     return null
   }
+
 
   const category = await getCategoryByHandle(["akcesoria-meblowe"])
   const subcategories = category?.category_children ?? []
@@ -43,6 +50,7 @@ export default async function Home(props: {
       <Hero />
       <Hero_fetures />
       <Hero_categories categories={subcategories} />
+      <HeroPopular products={response.products} />
 
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
