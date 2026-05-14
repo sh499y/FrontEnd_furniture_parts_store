@@ -19,7 +19,7 @@ export default function Hero_interiors() {
       <h2 className="text-2xl font-semibold text-center mb-6">
         Przykładowe projekty wnętrz
       </h2>
-      <p className="text-sm text-slate-500 text-center mt-2 max-w-lg mx-auto">
+      <p className="text-sm text-[#555] leading-relaxed text-center mb-6">
         Nasze części i komponenty znajdują zastosowanie w nowoczesnych
         realizacjach wnętrz. Od mieszkań i domów, po biura oraz lokale użytkowe.
       </p>
@@ -29,7 +29,11 @@ export default function Hero_interiors() {
             key={i}
             onClick={() => setActiveIndex(activeIndex === i ? null : i)}
             className={`relative group flex-grow rounded-lg overflow-hidden h-[400px] transition-all duration-500 cursor-pointer w-56 md:hover:w-full ${
-              activeIndex === i ? "!w-full" : activeIndex !== null ? "!w-10 md:!w-auto" : ""
+              activeIndex === i
+                ? "!w-full"
+                : activeIndex !== null
+                ? "!w-10 md:!w-auto"
+                : ""
             }`}
           >
             <img
