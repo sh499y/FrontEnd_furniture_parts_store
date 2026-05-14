@@ -10,9 +10,11 @@ import Hero from "@modules/home/components/hero"
 import Hero_fetures from "@modules/home/components/hero/hero_fetures"
 import Hero_categories from "@modules/home/components/hero/hero_categories"
 import HeroPopular from "@modules/home/components/hero/hero_popular"
+import Hero_about from "@modules/home/components/hero/hero_about"
 
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
+import HeroAbout from "@modules/home/components/hero/hero_about"
 
 export const metadata: Metadata = {
   title: "AMMW - Akcesoria Meblowe | Hurtownia w Skórzewie",
@@ -51,6 +53,7 @@ export default async function Home(props: {
       <Hero_fetures />
       <Hero_categories categories={subcategories} />
       <HeroPopular products={response.products} />
+      <HeroAbout />
 
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">

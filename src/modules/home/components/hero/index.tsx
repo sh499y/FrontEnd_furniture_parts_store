@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
           </a>
 
           <div className="flex items-center gap-2 mt-2 text-[#888] text-sm">
-            <span>5,000+ Produkktów</span>
+            <span>5,000+ Produktów</span>
           </div>
         </div>
 
