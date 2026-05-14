@@ -28,13 +28,9 @@ export default function Hero_interiors() {
           <div
             key={i}
             onClick={() => setActiveIndex(activeIndex === i ? null : i)}
-            className={`relative group flex-grow rounded-lg overflow-hidden h-[400px] transition-all duration-500 cursor-pointer ${
-              activeIndex === i
-                ? "w-full"
-                : activeIndex !== null
-                ? "w-16"
-                : "w-56"
-            } hover:w-full`}
+            className={`relative group flex-grow rounded-lg overflow-hidden h-[400px] transition-all duration-500 cursor-pointer w-56 md:hover:w-full ${
+              activeIndex === i ? "!w-full" : activeIndex !== null ? "!w-10 md:!w-auto" : ""
+            }`}
           >
             <img
               className="h-full w-full object-cover object-center"
