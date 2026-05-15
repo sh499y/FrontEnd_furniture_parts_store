@@ -2,7 +2,7 @@ import React from "react"
 
 const HeroAbout: React.FC = () => {
   return (
-    <section className="w-full py-12 px-6">
+    <section id="o-nas" className="w-full py-12 px-6 scroll-mt-32">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
         {/* Zdjęcie */}
         <div className="w-full md:w-1/2">

@@ -12,9 +12,9 @@ import SideMenu from "@modules/layout/components/side-menu"
 const navLinks = [
   { name: "Sklep", href: "/store" },
   { name: "Kategorie", href: "/categories/akcesoria-meblowe" },
-  { name: "O nas", href: "/o-nas" },
+  { name: "O nas", href: "/#o-nas" },
   { name: "Producenci", href: "/producenci" },
-  { name: "Kontakt", href: "/kontakt" },
+  { name: "Kontakt", href: "/#kontakt" },
 ]
 
 export default async function Nav() {

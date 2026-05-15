@@ -2,7 +2,7 @@ import React from "react"
 
 const Hero_contact: React.FC = () => {
   return (
-    <section className="w-full bg-black text-white py-16 px-6">
+    <section id="kontakt" className="w-full bg-black text-white py-16 px-6 scroll-mt-32">
       <div className="max-w-6xl mx-auto">
         <span className="inline-block w-fit px-3 py-1.5 border border-white bg-white text-black text-[11px] font-semibold tracking-[0.15em] uppercase mb-6">
           Kontakt
