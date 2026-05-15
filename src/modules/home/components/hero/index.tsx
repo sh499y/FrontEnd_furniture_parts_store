@@ -1,5 +1,8 @@
 import React from "react"
 
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
+
+
 const Hero: React.FC = () => {
   return (
     <section className="min-h-screen flex items-center justify-center px-6 py-20">
@@ -23,13 +26,13 @@ const Hero: React.FC = () => {
             zarówno firmy, jak i klientów indywidualnych z regionu Poznania.
           </p>
 
-          <a
-            href="#oferta"
-            className="inline-flex items-center gap-2.5 w-fit px-7 py-3.5 bg-black text-white text-sm font-medium rounded-sm hover:bg-neutral-800 transition-colors"
+          <LocalizedClientLink
+            href="/store"
+            className="inline-flex items-center gap-2.5 w-fit px-7 py-3.5 bg-black border border-black text-white text-sm font-medium rounded-sm hover:bg-white hover:text-black transition-colors"
           >
             Oferta
-            <span className="material-icons">arrow_forward</span>
-          </a>
+            <span className="material-icons text-[16px]">arrow_forward</span>
+          </LocalizedClientLink>
 
           <div className="flex items-center gap-2 mt-2 text-[#888] text-sm">
             <span>5,000+ Produktów</span>
