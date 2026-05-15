@@ -17,6 +17,7 @@ import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import HeroAbout from "@modules/home/components/hero/hero_about"
 import Hero_producers from "@modules/home/components/hero/hero_producers"
+import Hero_contact from "@modules/home/components/hero/hero_contact"
 
 export const metadata: Metadata = {
   title: "AMMW - Akcesoria Meblowe | Hurtownia w Skórzewie",
@@ -58,6 +59,7 @@ export default async function Home(props: {
       <HeroAbout />
       <Hero_interiors />
       <Hero_producers />
+      <Hero_contact />
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />

@@ -40,7 +40,7 @@ export default function Hero_producers() {
         <div className="text-center mt-8 mb-6">
           <LocalizedClientLink
             href="/producenci"
-            className="inline-flex items-center gap-2 px-6 py-2.5 border border-black rounded-full text-sm font-medium text-black hover:bg-black hover:text-white transition-colors duration-200"
+            className="inline-flex items-center gap-2.5 w-fit px-7 py-3.5 bg-white text-black border border-black text-sm font-medium rounded-sm hover:bg-black hover:text-white transition-colors"
           >
             Zobacz wszystkich producentów
             <span className="material-icons text-[16px]">arrow_forward</span>
