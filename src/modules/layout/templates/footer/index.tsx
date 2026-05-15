@@ -1,9 +1,10 @@
-import { listCategories } from "@lib/data/categories"
+import { getCategoryByHandle } from "@lib/data/categories"
 import { Text } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 export default async function Footer() {
-  const productCategories = await listCategories()
+  const category = await getCategoryByHandle(["akcesoria-meblowe"])
+  const subcategories = category?.category_children ?? []
 
   return (
     <footer className="bg-black text-white w-full">
@@ -15,9 +16,9 @@ export default async function Footer() {
               <img
                 src="/AMMV_logo.svg"
                 alt="AMMW Logo"
-                className="h-[40px] w-auto brightness-0 invert"
+                className="h-[40px] w-auto invert"
               />
-              <span className="text-[10px] uppercase tracking-[0.15em] text-[#888] font-medium leading-tight border-l border-[#555] pl-2 ml-1">
+              <span className="text-[10px] uppercase tracking-[0.15em] text-white font-medium leading-tight border-l border-[#555] pl-2 ml-1">
                 Akcesoria
                 <br />
                 Meblowe
@@ -30,25 +31,22 @@ export default async function Footer() {
           </div>
 
           {/* Kategorie */}
-          {productCategories && productCategories.length > 0 && (
+          {subcategories.length > 0 && (
             <div className="flex flex-col gap-3">
               <h3 className="text-sm font-semibold uppercase tracking-wide">
                 Kategorie
               </h3>
               <ul className="flex flex-col gap-2">
-                {productCategories.slice(0, 6).map((c) => {
-                  if (c.parent_category) return null
-                  return (
-                    <li key={c.id}>
-                      <LocalizedClientLink
-                        href={`/categories/${c.handle}`}
-                        className="text-sm text-[#aaa] hover:text-white transition-colors"
-                      >
-                        {c.name}
-                      </LocalizedClientLink>
-                    </li>
-                  )
-                })}
+                {subcategories.map((c) => (
+                  <li key={c.id}>
+                    <LocalizedClientLink
+                      href={`/categories/${c.handle}`}
+                      className="text-sm text-[#aaa] hover:text-white transition-colors"
+                    >
+                      {c.name}
+                    </LocalizedClientLink>
+                  </li>
+                ))}
               </ul>
             </div>
           )}
