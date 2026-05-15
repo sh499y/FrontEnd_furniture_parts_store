@@ -1,5 +1,7 @@
 "use client"
 
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
+
 const logos = [
   { src: "/logos/company1.png", alt: "Producent 1" },
   { src: "/logos/company2.png", alt: "Producent 2" },
@@ -21,7 +23,7 @@ export default function Hero_producers() {
         <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
 
         {/* Scrolling track */}
-        <div className="flex animate-scroll gap-12 items-center w-max">
+        <div className="flex animate-scroll gap-12 items-center w-max hover:[animation-play-state:paused]">
           {[...logos, ...logos].map((logo, i) => (
             <div
               key={i}
@@ -34,6 +36,15 @@ export default function Hero_producers() {
               />
             </div>
           ))}
+        </div>
+        <div className="text-center mt-8 mb-6">
+          <LocalizedClientLink
+            href="/producenci"
+            className="inline-flex items-center gap-2 px-6 py-2.5 border border-black rounded-full text-sm font-medium text-black hover:bg-black hover:text-white transition-colors duration-200"
+          >
+            Zobacz wszystkich producentów
+            <span className="material-icons text-[16px]">arrow_forward</span>
+          </LocalizedClientLink>
         </div>
       </div>
     </section>
