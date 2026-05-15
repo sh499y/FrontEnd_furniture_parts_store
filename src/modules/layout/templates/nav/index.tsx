@@ -6,6 +6,7 @@ import { getLocale } from "@lib/data/locale-actions"
 import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
+import SearchBar from "@modules/layout/components/search-bar"
 import SideMenu from "@modules/layout/components/side-menu"
 
 const navLinks = [
@@ -75,29 +76,13 @@ export default async function Nav() {
             </LocalizedClientLink>
           </div>
 
-          {/* Center - Navigation Links */}
-          <div className="hidden lg:flex items-center gap-8 h-full">
-            {navLinks.map((link) => (
-              <LocalizedClientLink
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-[#555] hover:text-black transition-colors relative py-1"
-              >
-                {link.name}
-              </LocalizedClientLink>
-            ))}
+          {/* Center - Search Bar */}
+          <div className="hidden lg:flex items-center justify-center flex-1">
+            <SearchBar />
           </div>
 
           {/* Right - Actions */}
           <div className="flex items-center gap-5 flex-1 basis-0 justify-end">
-            <LocalizedClientLink
-              href="/store"
-              className="hidden sm:flex text-[#555] hover:text-black transition-colors"
-              aria-label="Szukaj"
-            >
-              <span className="material-icons text-[22px]">search</span>
-            </LocalizedClientLink>
-
             <LocalizedClientLink
               className="hidden sm:flex text-[#555] hover:text-black transition-colors"
               href="/account"
@@ -125,6 +110,19 @@ export default async function Nav() {
             </Suspense>
           </div>
         </nav>
+        <div className="hidden lg:block bg-white border-b border-[#eee]">
+          <div className="content-container flex items-center justify-center gap-8 py-2">
+            {navLinks.map((link) => (
+              <LocalizedClientLink
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium text-[#555] hover:text-black transition-colors relative py-1"
+              >
+                {link.name}
+              </LocalizedClientLink>
+            ))}
+          </div>
+        </div>
       </header>
     </div>
   )
