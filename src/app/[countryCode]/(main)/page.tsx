@@ -60,10 +60,8 @@ export default async function Home(props: {
       <Hero_interiors />
       <Hero_producers />
       <Hero_contact />
-      <div className="py-12">
-        <ul className="flex flex-col gap-x-6">
-          <FeaturedProducts collections={collections} region={region} />
-        </ul>
+      <div className="w-full bg-black">
+        <div className="max-w-6xl mx-auto border-t border-white" />
       </div>
     </>
   )
