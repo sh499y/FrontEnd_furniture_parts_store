@@ -4,24 +4,22 @@ const Hero_contact: React.FC = () => {
   return (
     <section className="w-full bg-black text-white py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <span className="inline-block w-fit px-3 py-1.5 border border-white text-[11px] font-semibold tracking-[0.15em] uppercase mb-6">
+        <span className="inline-block w-fit px-3 py-1.5 border border-white bg-white text-black text-[11px] font-semibold tracking-[0.15em] uppercase mb-6">
           Kontakt
         </span>
 
         <h2 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-12">
-          Odwiedź nas
-          <br />
-          w Skórzewie
+          Odwiedź nas w Skórzewie
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 items-stretch w-full">
           {/* Lewa - Mapa */}
-          <div className="rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(255,255,255,0.06)]">
+          <div className="rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(255,255,255,0.06)] w-full">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.0767349869443!2d16.793568076905515!3d52.38715924605584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704450692095611%3A0x55966cfa379145e4!2sHurtownia%20oku%C4%87%20meblowych%20AMMW%20Mariusz%20Wo%C5%BAniak!5e0!3m2!1spl!2spl!4v1778842903311!5m2!1spl!2spl"
               width="100%"
-              height="420"
-              style={{ border: 0 }}
+              height="100%"
+              style={{ border: 0, minHeight: "420px" }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
